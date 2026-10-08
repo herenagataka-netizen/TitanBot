@@ -76,6 +76,7 @@ TitanBot offers a complete suite of tools for Discord server management and comm
 - **Report System** - Report issues to staff
 - **Todo Lists** - Personal task management
 - **First Message** - Jump to channel's first message
+- **Webhooks** - Create webhooks with custom names and avatar images
 
 ### Welcome System
 - **Welcome Messages** - Greet new members
@@ -273,6 +274,7 @@ TitanBot requires the following Discord intents:
 - **Manage Messages**
 - **Ban Members**
 - **Moderate Members**
+- **Manage Webhooks**
 - **Connect**
 
 ## License
