@@ -31,7 +31,7 @@ export default {
     data: new SlashCommandBuilder()
         .setName('webhook')
         .setDescription('Create, list, and delete webhooks with custom names and avatars')
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageWebhooks)
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
         .addSubcommand(sub => sub
             .setName('create')
             .setDescription('Create a webhook with a name and avatar image')
@@ -51,6 +51,10 @@ export default {
         await interaction.deferReply({ flags: MessageFlags.Ephemeral });
         const sub = interaction.options.getSubcommand();
         const { guild, member } = interaction;
+
+        if (!member.permissions.has(PermissionFlagsBits.Administrator)) {
+            return interaction.editReply({ embeds: [createEmbed({ title: 'Missing Permission', description: 'Only server administrators can use this command.', color: 'error' })] });
+        }
 
         try {
             if (sub === 'create') {
